@@ -538,6 +538,10 @@ header{
 		label{
 			font-size: 14px;
 			color: #515151;
+			padding-left: 20px;
+			position: relative;
+			display: block;
+			cursor: pointer;
 		}
 
 		.big{
@@ -571,15 +575,15 @@ input[type="checkbox"]{
 
 input[type="checkbox"] + label::before{
 	content: "";
-    display: inline-block;
-    height: 13px;
-    width: 13px;
-    background: url(img/sprite-1.png) no-repeat;
-    background-position: 0 -809px;
-    margin: 0 10px 0 0;
-    position: relative;
-    top: 2px;
-
+	display: block;
+	position: absolute;
+	height: 13px;
+	width: 13px;
+	background: url(img/sprite-1.png) no-repeat;
+	background-position: 0 -809px;
+	margin: 0 10px 0 0;
+	top: 0;
+	left: 0;
 }
 
 input[type="checkbox"]:checked + label::before {
@@ -605,6 +609,7 @@ input[type="checkbox"]:checked + label::before {
 			width: 20px;
 			top: 0;
 			left: 0;
+			z-index: 9999999999;
 
 			.new{
 				width: 20px;
@@ -708,7 +713,7 @@ input[type="checkbox"]:checked + label::before {
 /* breadcrumbs */
 
 .breacrumbs{
-	margin-bottom: 25px;
+	margin-bottom: 10px;
 	padding: 0 20px;
 
 	a{
@@ -1278,7 +1283,7 @@ input[type="checkbox"]:checked + label::before {
 
 		a{
 			font-size: 15px;
-			line-height: 25px;
+			line-height: 20px;
 			color: #4f8cad;
 			text-decoration: underline;
 
@@ -1785,7 +1790,7 @@ plug
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding-top: 40px;
+	padding-top: 40px 30px;
 
 	p{
 		font-size: 17px;
@@ -1848,19 +1853,32 @@ body, html{
 	height: 100%;
 }
 
-.pop-up-wrapper{
+.overlay{
+	background: rgba(0,0,0,.6);
 	width: 100%;
 	height: 100%;
-	text-align: center;
-	background: rgba(0,0,0,.6);
-	vertical-align: middle;
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 1000000000;
 	display: none;
 
 	&.active{
-		display: table;
+		display: block;
+	}
+}
+
+.pop-up-wrapper{
+	position: absolute;
+	top: 290px;
+	left: 50%;
+	margin-left: -300px;
+	display: none;
+	z-index: 1000000002;
+	position: absolute;
+
+	&.active{
+		display: block;
 	}
 }
 
@@ -2015,6 +2033,11 @@ body, html{
   background: #fff;
 }
 
+.ui-slider{
+	width: 94%;
+	margin: 0 auto;
+}
+
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
@@ -2040,9 +2063,10 @@ body, html{
   display: block;
   position: relative;
   top: 20px;
-  left: -40px;
-  width: 100px;
+  left: -6px;
+  width: 30px;
   text-align: center;
+  background: #fff;
 }
 
 .last:after {
@@ -2050,9 +2074,10 @@ body, html{
   display: block;
   position: relative;
   top: 20px;
-  left: -40px;
-  width: 100px;
+  left: -6px;
+  width: 30px;
   text-align: center;
+  background: #fff;
 }
 
 

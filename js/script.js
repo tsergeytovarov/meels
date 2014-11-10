@@ -23,7 +23,7 @@ $(function(){
 
 	// open pop up
 	$('.get-pop-up').on('click',function(){
-		$('.pop-up-wrapper').removeClass('active');
+		$('.overlay').addClass('active');
 		$('.' + $(this).attr('data-pop-up')).addClass('active');
 		$('body, html').css('overflow', 'hidden');
 		return false;
@@ -33,7 +33,14 @@ $(function(){
 	$('.pop-up-wrapper').find('.close-pop-up').on('click', function(){
 		$(this).parents('.pop-up-wrapper').removeClass('active');
 		$('body, html').css('overflow', 'auto');
+		$('.overlay').removeClass('active');
 		return false;
+	})
+
+	$('.overlay').on('click', function(){
+		$('.pop-up-wrapper').removeClass('active');
+		$('body, html').css('overflow', 'auto');
+		$('.overlay').removeClass('active');
 	})
 
 
@@ -68,7 +75,7 @@ $(function(){
     	$('#vatt-2-slider-range .ui-slider-handle:last').attr('after-content', ui.values[ 1 ]  + " Вт");
 
     	$('.vatt-2-min').val( ui.values[ 0 ] );
-    	$('.vatt-2-		max').val( ui.values[ 1 ] );
+    	$('.vatt-2-max').val( ui.values[ 1 ] );
 
 
       }
@@ -77,6 +84,8 @@ $(function(){
     $('#vatt-2-slider-range .ui-slider-handle:first').addClass('first').attr('after-content', $( "#vatt-2-slider-range" ).slider( "values", 0 ) + " Вт");
     $('#vatt-2-slider-range .ui-slider-handle:last').addClass('last').attr('after-content', $( "#vatt-2-slider-range" ).slider( "values", 1 ) + " Вт");
 
+
+    $('.telephone-mask').mask("?+?7(999) 999-9999");
 
 
     // add catalg itme when scroll

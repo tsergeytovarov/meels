@@ -9,6 +9,23 @@
 }
 
 .row{
+    
+    &.inline-row{
+        font-size: 0;
+        
+        &>.col{
+            @extend .inline;
+            float: none;
+
+             &:first-child{
+                padding: 0 13px;
+            }
+
+            &:last-child{
+                padding: 0 13px;
+            }
+        }
+    }
 
     .col{
 
@@ -165,6 +182,7 @@ form{
     color: #fff;
     background: #4f8cad;
     padding: 10px 30px;
+    outline: none;
 
     &:hover{
         background: #5fa1c4;
