@@ -772,6 +772,7 @@ input[type="checkbox"]:checked + label::before {
 			width: 20px;
 			top: 0;
 			left: 0;
+			z-index: 9999999999;
 
 			.new{
 				width: 20px;
@@ -1270,6 +1271,12 @@ input[type="checkbox"]:checked + label::before {
 		border-bottom: 1px solid #e7e7e7;
 		margin-bottom: 25px;
 		line-height: 44px;
+	}
+
+	h2{
+		border-top: 1px solid #e7e7e7;
+		padding: 40px 0 25px;
+		margin-top: 25px;
 	}
 
 	.all-news-item{

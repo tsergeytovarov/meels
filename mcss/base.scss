@@ -386,12 +386,14 @@ form{
     box-sizing: border-box;
 
     .fotorama__img{
-        width: 80px;
         margin: auto;
-        display: table-cell;
-        vertical-align: middle;
+        height: 90px!important;
+        width: auto!important;
+        top: 0!important;
+        left: 0!important;
     }
 }
+
 
 .fotorama__nav.fotorama__shadows--right:after, .fotorama__stage.fotorama__shadows--right:after{
     display: none;

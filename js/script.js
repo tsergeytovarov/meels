@@ -50,10 +50,9 @@ $(function(){
       min: 2,
       max: 12,
       values: [ 4, 10 ],
-      slide: function( event, ui ) {
+      slide: function( event, ui ) { // это функция которая вызывается по изменению слайда
         $('#vatt-slider-range .ui-slider-handle:first').attr('after-content', ui.values[ 0 ] + " Вт");
     	$('#vatt-slider-range .ui-slider-handle:last').attr('after-content', ui.values[ 1 ]  + " Вт");
-
     	$('.vatt-min').val( ui.values[ 0 ] );
     	$('.vatt-max').val( ui.values[ 1 ] );
 
@@ -64,13 +63,23 @@ $(function(){
     $('#vatt-slider-range .ui-slider-handle:first').addClass('first').attr('after-content', $( "#vatt-slider-range" ).slider( "values", 0 ) + " Вт");
     $('#vatt-slider-range .ui-slider-handle:last').addClass('last').attr('after-content', $( "#vatt-slider-range" ).slider( "values", 1 ) + " Вт");
 
+    $('.vatt-min').change(function(){
+   		$("#vatt-slider-range").slider('values',0,$(this).val());
+   		$('#vatt-slider-range .ui-slider-handle:first').attr('after-content', $(this).val() + " Вт");
+    })
+
+    $('.vatt-max').change(function(){
+   		$("#vatt-slider-range").slider('values',1,$(this).val());
+   		$('#vatt-slider-range .ui-slider-handle:last').attr('after-content', $(this).val() + " Вт");
+    })
+
     // sliders 2
 	$( "#vatt-2-slider-range" ).slider({
       range: true,
       min: 20,
       max: 95,
       values: [ 30, 80 ],
-      slide: function( event, ui ) {
+      slide: function( event, ui ) { // это функция которая вызывается по изменению слайда
         $('#vatt-2-slider-range .ui-slider-handle:first').attr('after-content', ui.values[ 0 ] + " Вт");
     	$('#vatt-2-slider-range .ui-slider-handle:last').attr('after-content', ui.values[ 1 ]  + " Вт");
 
@@ -84,9 +93,28 @@ $(function(){
     $('#vatt-2-slider-range .ui-slider-handle:first').addClass('first').attr('after-content', $( "#vatt-2-slider-range" ).slider( "values", 0 ) + " Вт");
     $('#vatt-2-slider-range .ui-slider-handle:last').addClass('last').attr('after-content', $( "#vatt-2-slider-range" ).slider( "values", 1 ) + " Вт");
 
+    $('.vatt-2-min').change(function(){
+   		$("#vatt-2-slider-range").slider('values',0,$(this).val());
+   		$('#vatt-2-slider-range .ui-slider-handle:first').attr('after-content', $(this).val() + " Вт");
+    })
+
+    $('.vatt-2-max').change(function(){
+   		$("#vatt-2-slider-range").slider('values',1,$(this).val());
+   		$('#vatt-2-slider-range .ui-slider-handle:last').attr('after-content', $(this).val() + " Вт");
+    })
 
     $('.telephone-mask').mask("?+?7(999) 999-9999");
 
+
+    $(document).keydown(function(eventObject){
+		if( eventObject.which == 27){
+			if( $('.overlay').hasClass('active') ){
+				$('.pop-up-wrapper').removeClass('active');
+				$('body, html').css('overflow', 'auto');
+				$('.overlay').removeClass('active');
+			}
+		}
+	});
 
     // add catalg itme when scroll
 
