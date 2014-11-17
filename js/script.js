@@ -43,13 +43,18 @@ $(function(){
 		$('.overlay').removeClass('active');
 	})
 
+	var filter_min = 4;
+	var filter_max = 10;
+
+	var filter_2_min = 30;
+	var filter_2_max = 80;
 
 	// sliders 1
 	$( "#vatt-slider-range" ).slider({
       range: true,
       min: 2,
       max: 12,
-      values: [ 4, 10 ],
+      values: [ filter_min, filter_max ],
       slide: function( event, ui ) { // это функция которая вызывается по изменению слайда
         $('#vatt-slider-range .ui-slider-handle:first').attr('after-content', ui.values[ 0 ] + " Вт");
     	$('#vatt-slider-range .ui-slider-handle:last').attr('after-content', ui.values[ 1 ]  + " Вт");
@@ -78,7 +83,7 @@ $(function(){
       range: true,
       min: 20,
       max: 95,
-      values: [ 30, 80 ],
+      values: [ filter_2_min, filter_2_max  ],
       slide: function( event, ui ) { // это функция которая вызывается по изменению слайда
         $('#vatt-2-slider-range .ui-slider-handle:first').attr('after-content', ui.values[ 0 ] + " Вт");
     	$('#vatt-2-slider-range .ui-slider-handle:last').attr('after-content', ui.values[ 1 ]  + " Вт");
@@ -115,6 +120,18 @@ $(function(){
 			}
 		}
 	});
+
+	$('.clear-filter').on('click', function(){
+		$("#vatt-slider-range").slider('values',0, filter_min);
+		$("#vatt-slider-range").slider('values',1, filter_max);
+		$('#vatt-slider-range .ui-slider-handle:first').attr('after-content', filter_min + " Вт");
+		$('#vatt-slider-range .ui-slider-handle:last').attr('after-content', filter_max + " Вт");
+
+		$("#vatt-2-slider-range").slider('values',0, filter_2_min);
+		$("#vatt-2-slider-range").slider('values',1, filter_2_max);
+		$('#vatt-2-slider-range .ui-slider-handle:first').attr('after-content', filter_min + " Вт");
+		$('#vatt-2-slider-range .ui-slider-handle:last').attr('after-content', filter_max + " Вт");
+	})
 
     // add catalg itme when scroll
 
