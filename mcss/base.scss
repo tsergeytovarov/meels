@@ -148,6 +148,12 @@ form{
         &:focus{
         }
     }
+
+    .clear-filter{
+        border: 0;
+        background: none;
+    }
+
     .search{
         padding: 0 10px 0 30px!important;
         background: #f6f6f6 url(img/sprite-1.png) no-repeat top left!important;
