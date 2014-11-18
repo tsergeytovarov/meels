@@ -129,8 +129,8 @@ $(function(){
 
 		$("#vatt-2-slider-range").slider('values',0, filter_2_min);
 		$("#vatt-2-slider-range").slider('values',1, filter_2_max);
-		$('#vatt-2-slider-range .ui-slider-handle:first').attr('after-content', filter_min + " Вт");
-		$('#vatt-2-slider-range .ui-slider-handle:last').attr('after-content', filter_max + " Вт");
+		$('#vatt-2-slider-range .ui-slider-handle:first').attr('after-content', filter_2_min + " Вт");
+		$('#vatt-2-slider-range .ui-slider-handle:last').attr('after-content', filter_2_max + " Вт");
 	})
 
     // add catalg itme when scroll
